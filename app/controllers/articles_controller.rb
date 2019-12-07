@@ -1,4 +1,7 @@
 class ArticlesController < ApplicationController
+    
+    before_action :require_login, except: [:index, :show] 
+    
     include ArticlesHelper
     def update
         @article = Article.find(params[:id])
